@@ -30,7 +30,12 @@ namespace Interview
             {
                 throw new ArgumentNullException("item", "Argument cannot be null.");
             }
-            _store.Add(item);
+
+            if (!_store.Contains(item))
+            {
+                _store.Add(item);
+            }
+            
         }
 
         public T FindById(IComparable id)
