@@ -14,7 +14,7 @@ namespace Interview.Tests
 
         public InMemoryRepositoryTests()
         {
-           // _repository  = new InMemoryRepository<User>();
+           _repository  = new InMemoryRepository<User>();
         }
 
         [SetUp]
@@ -34,7 +34,10 @@ namespace Interview.Tests
             };
 
             _repository.Save(user);
-            
+
+            var result = _repository.All();
+            Assert.IsTrue(((IEnumerable<User>)result).Contains(user));
+
         }
     }
 
