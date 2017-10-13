@@ -39,9 +39,9 @@ namespace Interview
         }
 
         public T FindById(IComparable id)
-        { 
-            return (T) new object();
+        {
+            return _store.Find(x => x.Id.Equals(id));
         }
 
-     }
+    }
 }
