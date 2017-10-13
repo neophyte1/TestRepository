@@ -15,7 +15,7 @@ namespace Interview
         }
         public IEnumerable<T> All()
         {
-            throw new NotImplementedException();
+            return null;
         }
         
 
@@ -26,7 +26,7 @@ namespace Interview
 
         public void Save(T item)
         {
-            throw new NotImplementedException();
+            _store.Add(item);
         }
 
         public T FindById(IComparable id)
