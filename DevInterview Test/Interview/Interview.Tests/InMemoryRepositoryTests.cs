@@ -50,6 +50,26 @@ namespace Interview.Tests
                  () => _repository.Save(user));
            
         }
+
+        [Test]
+        public void WhenSavedIsCalledWithDuplicateItemsItShouldAddOnlyOneItem()
+        {
+            var user = new User()
+            {
+                Id = 1,
+                Name = "Shaik",
+                EmailAddress = "test@testmail.com"
+            };
+
+            _repository.Save(user);
+            //Calling to twice to add duplicate item
+            _repository.Save(user);
+
+
+            var result = _repository.All();
+            Assert.AreEqual(1,((IEnumerable<User>)result).Count());
+
+        }
     }
 
     public  class User : IStoreable
