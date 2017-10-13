@@ -7,7 +7,7 @@ namespace Interview
 {
     public class InMemoryRepository<T> : IRepository<T> where T :IStoreable
     {
-        private List<T> _store;
+        private readonly List<T> _store;
 
         public InMemoryRepository()
         {
@@ -21,7 +21,8 @@ namespace Interview
 
         public void Delete(IComparable id)
         {
-           
+            _store.RemoveAll(x => x.Id.Equals(id));
+
         }
 
         public void Save(T item)
