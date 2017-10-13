@@ -101,17 +101,21 @@ namespace Interview.Tests
         }
 
         [Test]
-        public void WhenFindByIdCalledWithEmptyListShouldThrowNullException()
+        public void WhenFindByIdCalledWithListIsEmptyOrNullShouldThrowException()
         {
-            var expectedUser = new User
+            var user = new User
             {
                 Id = 123,
                 Name = "Abdul",
                 EmailAddress = "abdul@testemail.com"
             };
 
-            Assert.Throws<NullReferenceException>(() => _repository.FindById(123));
+            CreateInMemoryRepositoryInstance();
 
+            var exception = Assert.Throws<Exception>(
+                () => _repository.FindById(user.Id));
+            
+            Assert.That(exception.Message, Is.EqualTo("Items required in the List."));
         }
 
         [Test]
@@ -131,6 +135,24 @@ namespace Interview.Tests
             var result = (IEnumerable<User>)GetAllUsers();
 
             Assert.IsFalse(result.Contains(user)); 
+        }
+
+        [Test]
+        public void WhenDeleteIsCalledWithListIsEmptyOrNullShouldThrowException()
+        {
+            var user = new User
+            {
+                Id = 456,
+                Name = "Abdul",
+                EmailAddress = "abdul@testemail.com"
+            };
+
+            CreateInMemoryRepositoryInstance();
+
+            var exception = Assert.Throws<Exception>(
+                () => _repository.Delete(user.Id));
+
+            Assert.That(exception.Message, Is.EqualTo("Items required in the List."));
         }
 
         private void CreateInMemoryRepositoryInstance()

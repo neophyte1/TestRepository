@@ -30,6 +30,7 @@ namespace Interview
             if (item == null)
             {
                 throw new ArgumentNullException("item", "Argument cannot be null.");
+
             }
 
             if (!_store.Contains(item))
@@ -41,9 +42,10 @@ namespace Interview
 
         public T FindById(IComparable id)
         {
-            if (_store == null)
+            if (_store == null || _store.Count == 0)
             {
-                throw new NullReferenceException("Items required in the List");
+                throw new Exception("Items required in the List.");
+
             }
 
             return _store.Find(x => x.Id.Equals(id));
