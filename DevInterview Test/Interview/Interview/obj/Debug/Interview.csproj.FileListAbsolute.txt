@@ -1,0 +1,9 @@
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\bin\Debug\Interview.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\bin\Debug\Interview.pdb
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\bin\Debug\nunit.framework.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\bin\Debug\nunit.framework.xml
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\obj\Debug\Interview.csprojResolveAssemblyReference.cache
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\obj\Debug\Interview.csproj.CoreCompileInputs.cache
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\obj\Debug\Interview.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview\obj\Debug\Interview.pdb

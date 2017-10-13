@@ -1,0 +1,10 @@
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\bin\Debug\Interview.Tests.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\bin\Debug\Interview.Tests.pdb
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\bin\Debug\Interview.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\bin\Debug\nunit.framework.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\bin\Debug\Interview.pdb
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\bin\Debug\nunit.framework.xml
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\obj\Debug\Interview.Tests.csprojResolveAssemblyReference.cache
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\obj\Debug\Interview.Tests.csproj.CoreCompileInputs.cache
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\obj\Debug\Interview.Tests.dll
+D:\Test\TestRepository\DevInterview Test\Interview\Interview.Tests\obj\Debug\Interview.Tests.pdb
