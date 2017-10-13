@@ -24,7 +24,7 @@ namespace Interview.Tests
         }
 
         [Test]
-       public void WhenSavedIsCalledShouldNewItem()
+       public void WhenSavedIsCalledShouldAddNewItem()
         {
             var user = new User()
             {
@@ -38,6 +38,17 @@ namespace Interview.Tests
             var result = _repository.All();
             Assert.IsTrue(((IEnumerable<User>)result).Contains(user));
 
+        }
+
+        [Test]
+
+        public  void WhenSavedIsCalledWithUserNullShouldThrowNullException()
+        {
+            User user = null;
+
+            Assert.Throws(typeof(ArgumentNullException),
+                 () => _repository.Save(user));
+           
         }
     }
 
