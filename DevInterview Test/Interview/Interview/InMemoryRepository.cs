@@ -15,7 +15,7 @@ namespace Interview
         }
         public IEnumerable<T> All()
         {
-            return null;
+            return _store;
         }
         
 
