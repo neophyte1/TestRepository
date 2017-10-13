@@ -40,6 +40,11 @@ namespace Interview
 
         public T FindById(IComparable id)
         {
+            if (_store == null)
+            {
+                throw new NullReferenceException("Items required in the List");
+            }
+
             return _store.Find(x => x.Id.Equals(id));
         }
 

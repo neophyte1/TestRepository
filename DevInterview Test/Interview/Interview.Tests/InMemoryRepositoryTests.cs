@@ -110,8 +110,7 @@ namespace Interview.Tests
                 EmailAddress = "abdul@testemail.com"
             };
 
-            Assert.Throws(typeof(NullReferenceException),
-                () => _repository.FindById(123));
+            Assert.Throws<NullReferenceException>(() => _repository.FindById(123));
 
         }
 
