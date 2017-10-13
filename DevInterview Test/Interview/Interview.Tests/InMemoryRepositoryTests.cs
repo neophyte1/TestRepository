@@ -24,6 +24,7 @@ namespace Interview.Tests
         }
 
         [Test]
+       [ExpectedException(typeof(NotImplementedException))]
         public void WhenSavedIsCalledShouldNewItem()
         {
             var user = new User()
