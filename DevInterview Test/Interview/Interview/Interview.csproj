@@ -64,8 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InMemoryRepository.cs" />
+    <Compile Include="IReadRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IStoreable.cs" />
+    <Compile Include="IWriteRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests.cs" />
   </ItemGroup>
