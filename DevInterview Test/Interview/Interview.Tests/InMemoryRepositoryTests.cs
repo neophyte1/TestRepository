@@ -97,8 +97,21 @@ namespace Interview.Tests
             AddItemInMemoryRepository(userTwo);
 
             var result = _repository.FindById(userTwo.Id);
-
             Assert.AreEqual(result, userTwo);
+        }
+
+        [Test]
+        public void WhenFindByIdCalledWithEmptyListShouldThrowNullException()
+        {
+            var expectedUser = new User
+            {
+                Id = 123,
+                Name = "Abdul",
+                EmailAddress = "abdul@testemail.com"
+            };
+
+            Assert.Throws(typeof(NullReferenceException),
+                () => _repository.FindById(123));
 
         }
 
