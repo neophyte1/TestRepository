@@ -73,10 +73,45 @@ namespace Interview.Tests
 
         }
 
+
+        [Test]
+        public void WhenFindByIdCalledShouldReturnsCorrectItem()
+        {
+            
+            var userOne = new User()
+            {
+                Id = 1,
+                Name = "Martin",
+                EmailAddress = "martin@testmail.com"
+            };
+
+            var userTwo = new User()
+            {
+                Id = 3,
+                Name = "John",
+                EmailAddress = "john@testmail.com"
+            };
+
+            CreateInMemoryRepositoryInstance();
+            AddItemInMemoryRepository(userOne);
+            AddItemInMemoryRepository(userTwo);
+
+            var result = _repository.FindById(userTwo.Id);
+
+            Assert.AreEqual(result, userTwo);
+
+        }
+
         private void CreateInMemoryRepositoryInstance()
         {
             _repository = new InMemoryRepository<User>();
         }
+        
+        private void AddItemInMemoryRepository(User user)
+        {
+            _repository.Save(user);
+        }
+
     }
 
     public  class User : IStoreable

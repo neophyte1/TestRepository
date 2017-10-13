@@ -35,12 +35,12 @@ namespace Interview
             {
                 _store.Add(item);
             }
-            
+
         }
 
         public T FindById(IComparable id)
-        {
-            throw new NotImplementedException();
+        { 
+            return (T) new object();
         }
 
      }
