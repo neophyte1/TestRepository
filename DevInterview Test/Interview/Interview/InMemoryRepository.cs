@@ -21,6 +21,12 @@ namespace Interview
 
         public void Delete(IComparable id)
         {
+            if (_store == null || _store.Count == 0)
+            {
+                throw new Exception("Items should exist in the list before you invoke Delete().");
+
+            }
+
             _store.RemoveAll(x => x.Id.Equals(id));
 
         }

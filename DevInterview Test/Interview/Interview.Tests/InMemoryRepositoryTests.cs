@@ -152,7 +152,7 @@ namespace Interview.Tests
             var exception = Assert.Throws<Exception>(
                 () => _repository.Delete(user.Id));
 
-            Assert.That(exception.Message, Is.EqualTo("Items required in the List."));
+            Assert.That(exception.Message, Is.EqualTo("Items should exist in the list before you invoke Delete()."));
         }
 
         private void CreateInMemoryRepositoryInstance()
