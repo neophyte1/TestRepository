@@ -11,11 +11,11 @@ namespace Interview
 
         public InMemoryRepository()
         {
-            _store = new List<T>();
+           // _store = new List<T>();
         }
         public IEnumerable<T> All()
         {
-            return _store;
+           return _store;
         }
         
 

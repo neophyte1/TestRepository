@@ -155,6 +155,14 @@ namespace Interview.Tests
             Assert.That(exception.Message, Is.EqualTo("Items should exist in the list before you invoke Delete()."));
         }
 
+        [Test]
+        public void WhenAllIsCalledShouldThrowAnExceptionIfListIsNull()
+        {
+            CreateInMemoryRepositoryInstance();
+            
+            Assert.Throws<NullReferenceException>(() => _repository.All());
+        }
+
         private void CreateInMemoryRepositoryInstance()
         {
             _repository = new InMemoryRepository<User>();
