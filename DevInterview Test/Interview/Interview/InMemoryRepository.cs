@@ -21,7 +21,7 @@ namespace Interview
 
         public void Delete(IComparable id)
         {
-            throw new NotImplementedException();
+           
         }
 
         public void Save(T item)

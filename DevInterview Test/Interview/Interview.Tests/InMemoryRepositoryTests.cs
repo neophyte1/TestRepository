@@ -114,6 +114,25 @@ namespace Interview.Tests
 
         }
 
+        [Test]
+        public void WhenDeleteIsCalledShouldRemoveExistingItemFromTheStore()
+        {
+            CreateInMemoryRepositoryInstance();
+            var user = new User
+            {
+                Id = 3,
+                Name = "Abdul",
+                EmailAddress = "TestEmail@test.com"
+            };
+
+            AddItemInMemoryRepository(user);
+
+            _repository.Delete(user.Id);
+            var result = (IEnumerable<User>)GetAllUsers();
+
+            Assert.IsFalse(result.Contains(user)); 
+        }
+
         private void CreateInMemoryRepositoryInstance()
         {
             _repository = new InMemoryRepository<User>();
@@ -122,6 +141,12 @@ namespace Interview.Tests
         private void AddItemInMemoryRepository(User user)
         {
             _repository.Save(user);
+        }
+
+
+        private IEnumerable<IStoreable> GetAllUsers()
+        {
+            return _repository.All();
         }
 
     }
