@@ -14,7 +14,7 @@ namespace Interview.Tests
 
         public InMemoryRepositoryTests()
         {
-           _repository  = new InMemoryRepository<User>();
+           _repository  = null;
         }
 
         [SetUp]
@@ -32,6 +32,7 @@ namespace Interview.Tests
                 Name = "Shaik",
                 EmailAddress = "test@testmail.com"
             };
+            CreateInMemoryRepositoryInstance();
 
             _repository.Save(user);
 
@@ -45,6 +46,7 @@ namespace Interview.Tests
         public  void WhenSavedIsCalledWithUserNullShouldThrowNullException()
         {
             User user = null;
+            CreateInMemoryRepositoryInstance();
 
             Assert.Throws(typeof(ArgumentNullException),
                  () => _repository.Save(user));
@@ -60,15 +62,20 @@ namespace Interview.Tests
                 Name = "Shaik",
                 EmailAddress = "test@testmail.com"
             };
+            CreateInMemoryRepositoryInstance();
 
             _repository.Save(user);
             //Calling to twice to add duplicate item
             _repository.Save(user);
-
-
+            
             var result = _repository.All();
             Assert.AreEqual(1,((IEnumerable<User>)result).Count());
 
+        }
+
+        private void CreateInMemoryRepositoryInstance()
+        {
+            _repository = new InMemoryRepository<User>();
         }
     }
 
