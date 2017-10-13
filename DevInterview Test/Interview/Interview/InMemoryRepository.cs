@@ -26,6 +26,10 @@ namespace Interview
 
         public void Save(T item)
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException("item", "Argument cannot be null.");
+            }
             _store.Add(item);
         }
 
