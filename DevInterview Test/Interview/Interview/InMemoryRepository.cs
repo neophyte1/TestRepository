@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Interview
 {
-    public class InMemoryRepository<T> : IRepository<T> where T :IStoreable
+    public class InMemoryRepository<T> : IRepository<T> where T : IStoreable
     {
         private readonly List<T> _store;
 
@@ -22,7 +22,7 @@ namespace Interview
 
             return _store;
         }
-        
+
 
         public void Delete(IComparable id)
         {

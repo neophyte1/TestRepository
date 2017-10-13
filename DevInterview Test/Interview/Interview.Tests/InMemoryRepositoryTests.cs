@@ -14,17 +14,17 @@ namespace Interview.Tests
 
         public InMemoryRepositoryTests()
         {
-           _repository  = null;
+            _repository = null;
         }
 
         [SetUp]
         public void SetUp()
         {
-            
+
         }
 
         [Test]
-       public void WhenSavedIsCalledShouldAddNewItem()
+        public void WhenSavedIsCalledShouldAddNewItem()
         {
             var user = new User()
             {
@@ -43,14 +43,14 @@ namespace Interview.Tests
 
         [Test]
 
-        public  void WhenSavedIsCalledWithUserNullShouldThrowNullException()
+        public void WhenSavedIsCalledWithUserNullShouldThrowNullException()
         {
             User user = null;
             CreateInMemoryRepositoryInstance();
 
             Assert.Throws(typeof(ArgumentNullException),
                  () => _repository.Save(user));
-           
+
         }
 
         [Test]
@@ -67,9 +67,9 @@ namespace Interview.Tests
             _repository.Save(user);
             //Calling to twice to add duplicate item
             _repository.Save(user);
-            
+
             var result = _repository.All();
-            Assert.AreEqual(1,((IEnumerable<User>)result).Count());
+            Assert.AreEqual(1, ((IEnumerable<User>)result).Count());
 
         }
 
@@ -77,7 +77,7 @@ namespace Interview.Tests
         [Test]
         public void WhenFindByIdCalledShouldReturnsCorrectItem()
         {
-            
+
             var userOne = new User()
             {
                 Id = 1,
@@ -114,7 +114,7 @@ namespace Interview.Tests
 
             var exception = Assert.Throws<Exception>(
                 () => _repository.FindById(user.Id));
-            
+
             Assert.That(exception.Message, Is.EqualTo("Items required in the List."));
         }
 
@@ -134,7 +134,7 @@ namespace Interview.Tests
             _repository.Delete(user.Id);
             var result = (IEnumerable<User>)GetAllUsers();
 
-            Assert.IsFalse(result.Contains(user)); 
+            Assert.IsFalse(result.Contains(user));
         }
 
         [Test]
@@ -156,18 +156,28 @@ namespace Interview.Tests
         }
 
         [Test]
+        [Ignore("Ignore this test, this should be run with uninitialised or null List")]
         public void WhenAllIsCalledShouldThrowAnExceptionIfListIsNull()
         {
             CreateInMemoryRepositoryInstance();
-            
             Assert.Throws<NullReferenceException>(() => _repository.All());
+        }
+
+        [Test]
+        public void WhenAllIsCalledWithEmptyListShouldReturn0()
+        {
+            CreateInMemoryRepositoryInstance();
+
+            var result = _repository.All();
+
+            Assert.AreEqual(result.Count(), 0);
         }
 
         private void CreateInMemoryRepositoryInstance()
         {
             _repository = new InMemoryRepository<User>();
         }
-        
+
         private void AddItemInMemoryRepository(User user)
         {
             _repository.Save(user);
@@ -181,7 +191,7 @@ namespace Interview.Tests
 
     }
 
-    public  class User : IStoreable
+    public class User : IStoreable
     {
         public IComparable Id { get; set; }
 
